@@ -1,14 +1,21 @@
 class CategoryOfExpensesController < ApplicationController
+  before_action :set_community
+      #VERIFICAR QUE validar_permiso_comunidad SE APLICA A TODAS LAS ACCIONES NECESARIAS
+  include ValidarPermisoComunidadConcern
+
   before_action :set_category_of_expense, only: [:show, :edit, :update, :destroy]
+  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+
+  #Declarando el layout particular que usaremos
+  layout "dashboard"
+
 
   # GET /category_of_expenses
-  # GET /category_of_expenses.json
   def index
-    @category_of_expenses = CategoryOfExpense.all
+    @category_of_expenses = @community.category_of_expenses.all
   end
 
   # GET /category_of_expenses/1
-  # GET /category_of_expenses/1.json
   def show
   end
 
@@ -22,53 +29,45 @@ class CategoryOfExpensesController < ApplicationController
   end
 
   # POST /category_of_expenses
-  # POST /category_of_expenses.json
   def create
-    @category_of_expense = CategoryOfExpense.new(category_of_expense_params)
-
-    respond_to do |format|
-      if @category_of_expense.save
-        format.html { redirect_to @category_of_expense, notice: 'Category of expense was successfully created.' }
-        format.json { render :show, status: :created, location: @category_of_expense }
-      else
-        format.html { render :new }
-        format.json { render json: @category_of_expense.errors, status: :unprocessable_entity }
-      end
+    @category_of_expense = @community.category_of_expenses.create(category_of_expense_params)
+    @category_of_expense.save
+    if @category_of_expense.save
+      redirect_to community_category_of_expenses_path(@community), notice: 'Categoría de gasto creada exitosamente.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /category_of_expenses/1
-  # PATCH/PUT /category_of_expenses/1.json
   def update
-    respond_to do |format|
-      if @category_of_expense.update(category_of_expense_params)
-        format.html { redirect_to @category_of_expense, notice: 'Category of expense was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category_of_expense }
-      else
-        format.html { render :edit }
-        format.json { render json: @category_of_expense.errors, status: :unprocessable_entity }
-      end
+    if @category_of_expense.update(category_of_expense_params)
+      redirect_to community_category_of_expenses_path(@community), notice: 'Categoría de gasto actualizada.'
+    else
+      render :edit
     end
   end
 
   # DELETE /category_of_expenses/1
-  # DELETE /category_of_expenses/1.json
   def destroy
     @category_of_expense.destroy
-    respond_to do |format|
-      format.html { redirect_to category_of_expenses_url, notice: 'Category of expense was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to community_category_of_expenses_path(@community), notice: 'Categoría de gasto eliminada.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category_of_expense
-      @category_of_expense = CategoryOfExpense.find(params[:id])
+    
+    def set_community
+      @community = Community.find(params[:community_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Use callbacks to share common setup or constraints between actions.
+    def set_category_of_expense
+      #@category_of_expense = CategoryOfExpense.find(params[:id])
+      @category_of_expense = @community.category_of_expenses.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
     def category_of_expense_params
-      params.fetch(:category_of_expense, {})
+      params.require(:category_of_expense).permit(:nombre)
     end
 end
