@@ -1,0 +1,22 @@
+
+<!-- Inicio Bienvenida para Site_admins -->
+<% if logged_in?(:site_admin) %>
+  <%# <%= render "site_admin" %> %>
+<%end%>
+<!-- Fin Bienvenida para Site_admins -->
+
+<!-- Inicio Bienvenida para Administradores -->
+<% if logged_in?(:administrador) %>
+  <%# <%= render "admin" %> %>
+<%end%>
+<!-- Fin Bienvenida para Administradores -->
+
+<!-- Inicio Bienvenida para usuarios básicos -->
+<% if logged_in?(:user) %>
+  <% unless logged_in?(:administrador) or logged_in?(:site_admin) %>
+    <%# <%= render "user" %> %>
+  <%end%>
+<%end%>
+<!-- Fin Bienvenida para usuarios básicos -->
+
+

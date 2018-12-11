@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Communities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ciudad</th>
+      <th>Comuna</th>
+      <th>Region</th>
+      <th>Pais</th>
+      <th>Direccion</th>
+      <th>Telefono1</th>
+      <th>Telefono2</th>
+      <th>Imagen</th>
+      <th>Logo</th>
+      <th>Rut</th>
+      <th>Fecha constitution</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @communities.each do |community| %>
+      <tr>
+        <td><%= community.nombre %></td>
+        <td><%= community.ciudad %></td>
+        <td><%= community.comuna %></td>
+        <td><%= community.region %></td>
+        <td><%= community.pais %></td>
+        <td><%= community.direccion %></td>
+        <td><%= community.telefono1 %></td>
+        <td><%= community.telefono2 %></td>
+        <td><%= community.imagen %></td>
+        <td><%= community.logo %></td>
+        <td><%= community.rut %></td>
+        <td><%= community.fecha_constitution %></td>
+        <td><%= community.email %></td>
+        <td><%= link_to 'Show', community %></td>
+        <td><%= link_to 'Edit', edit_community_path(community) %></td>
+        <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Community', new_community_path %>
