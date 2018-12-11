@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :category_of_expenses
   resources :communities
   devise_for :users
   root to: 'homes#inicio'

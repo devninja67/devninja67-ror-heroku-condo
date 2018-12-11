@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Category Of Expenses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @category_of_expenses.each do |category_of_expense| %>
+      <tr>
+        <td><%= link_to 'Show', category_of_expense %></td>
+        <td><%= link_to 'Edit', edit_category_of_expense_path(category_of_expense) %></td>
+        <td><%= link_to 'Destroy', category_of_expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category Of Expense', new_category_of_expense_path %>

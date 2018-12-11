@@ -1,0 +1,2 @@
+class CategoryOfExpense < ApplicationRecord
+end
