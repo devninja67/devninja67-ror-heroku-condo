@@ -1,0 +1,1 @@
+# devninja67-ror-heroku-condo
