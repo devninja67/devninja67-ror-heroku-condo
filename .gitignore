@@ -41,9 +41,24 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
+# Ignore node_modules
+node_modules/
+
+# Ignore gemfile.lock or yarn.lock
+/*.lock
+
+# Ignore uploaded file on Development mode.
+/storage/*
+!/storage/.keep
+/yarn-error.log
+/public/assets
+
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore node_modules
-node_modules/
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+
+
 
