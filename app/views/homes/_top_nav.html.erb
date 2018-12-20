@@ -1,0 +1,46 @@
+<header class="header">
+    <nav class="navbar navbar-expand-lg p-0 navbar-custom">
+        <div class="header-logo">
+            <a class="navbar-brand d-flex align-items-center text-white bg-black" href="#">
+                <span class="text-uppercase fw-2">NU<span class="fw-8 text-blue">RA</span></span>
+            </a>
+        </div>
+        <div class="header-nav ml-auto">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link page-scroll" href="#home">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link page-scroll" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link page-scroll" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link page-scroll" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link page-scroll" href="#testimonial">Testimonial</a></li>
+                    <li class="nav-item"><a class="nav-link page-scroll" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link page-scroll" href="#">Foro</a></li>
+                    <li class="nav-item"><%= link_to "Registrarse", new_user_registration_path , class:"nav-link page-scroll" %></li>                    
+                    <li class="nav-item"><%= link_to "Iniciar Sesión", new_user_session_path, class:"nav-link page-scroll btn-hire-me btn-blue text-center text-white ml-lg-10 mr-lg-10" %> </li>
+                    
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link header-follow" href="#SocialIcon"><span class="ti-sharethis"></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-social d-flex align-items-center">
+            <ul class="list-unstyled mb-0 list-inline header-social-inner">
+                <li class="list-inline-item d-none d-sm-inline-block">Follow Us:</li>
+                <li class="list-inline-item"><a href="#"><span class="d-none d-md-inline-block">Facebook</span><i class="fab fa-facebook-f ml-2"></i></a></li>
+                <li class="list-inline-item"><a href="#"><span class="d-none d-md-inline-block">Twitter</span><i class="fab fa-twitter ml-2"></i></a></li>
+                <li class="list-inline-item"><a href="#"><span class="d-none d-md-inline-block">Instagram</span><i class="fab fa-instagram ml-2"></i></a></li>
+                <li class="list-inline-item"><a href="#"><span class="d-none d-md-inline-block">Linkedin</span><i class="fab fa-linkedin-in ml-2"></i></a></li>
+                <li class="list-inline-item"><a href="#"><span class="d-none d-md-inline-block">Youtube</span><i class="fab fa-youtube ml-2"></i></a></li>
+            </ul>
+            <a class="header-follow-close d-flex justify-content-center align-items-center" href="#"><span class="ti-close"></span></a>
+        </div>
+        <div class="mobile-menu d-md-block d-lg-none">
+            <a class="header-follow d-flex justify-content-center align-items-center" href="#"><span class="ti-sharethis"></span></a>
+            <a class="d-flex justify-content-center align-items-center js-fr-offcanvas-open" aria-controls="offcanvas-2" href="#"><span class="ti-more-alt"></span></a>
+            <a class="navbar-toggler d-flex justify-content-center align-items-center" data-toggle="collapse" href="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+                <span class="bar3"></span>
+            </a>
+        </div>
+    </nav>
+</header>
